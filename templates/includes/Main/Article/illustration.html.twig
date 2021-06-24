@@ -1,0 +1,21 @@
+
+{% for article_illustration in article_illustrations %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{path('illustration_show',{'id':article_illustration.id})}}"><img src="/assets/uploads/illustrations/{{ article_illustration.illustrationName }}"  style="width:100%;height:auto;"></a>
+              <div class="down-content">
+                <a href="{{path('illustration_show',{'id':article_illustration.id})}}"><h4>{{ article_illustration.titre }}</h4></a>
+                <h6>FCFA {{ article_illustration.prix }} </h6>
+                <p>{{ article_illustration.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (48)</span>
+              </div>
+            </div>
+          </div>
+{% endfor %}

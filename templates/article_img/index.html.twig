@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleImg index{% endblock %}
+
+{% block body %}
+    <h1>ArticleImg index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Date_de_creation</th>
+                <th>Auteur</th>
+                <th>Active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_img in article_imgs %}
+            <tr>
+                <td>{{ article_img.id }}</td>
+                <td><img src="/assets/uploads/images/{{article_img.filename}}"  style="width:70%;height:auto;"></td>
+                <td>{{ article_img.titre }}</td>
+                <td>{{ article_img.description }}</td>
+                <td>{{ article_img.prix }}</td>
+                <td>{{ article_img.dateDeCreation ? article_img.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article_img.auteur }}</td>
+                <td>{{ article_img.active ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('article_img_show', {'id': article_img.id}) }}">show</a>
+                    <a href="{{ path('article_img_edit', {'id': article_img.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_img_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,180 @@
+
+<style>
+
+  input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #7ecc66;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+/* Demo 2 */
+#demo-2 input[type=search] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+	cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+	background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+	color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+.identifie a{
+  padding: 20px 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 0px;
+  background: transparent;
+  position: relative;
+  transition: all .2s;
+  overflow: hidden;
+  color: #ffff;
+  border-radius: 30px;
+  box-shadow: 0px -0px 0px 0px rgba(143, 64,   248, .5), 0px 0px 0px 0px rgba(39, 200, 255, .5);
+}
+
+.identifie::after a{
+  content: '';
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  background-image: linear-gradient(225deg,   #27d86c 0%, #26caf8 50%, #c625d0 100%);
+  z-index: -1;
+  transition: all .5s;
+}
+
+.identifie:hover::after a{
+  transform: rotate(150deg);
+}
+
+.identifie:hover a{
+  transform: translate(0,-6px);
+  box-shadow: 10px -10px 25px 0px rgba(143,   64, 248, .25), -10px 10px 25px 0px rgba(39, 200,   255, .25);
+}
+</style>
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+      <div class="container">
+          <a class="navbar-brand" href="/"><img src="{{asset('assets/images/logo.png')}}" alt="..."></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+          <form id="demo-2">
+          <input type="search" placeholder="Search">
+        </form>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Accueil
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="/photographie">Photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/videographie">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/illustration">Illustrations</a>
+              </li>
+                            <li class="nav-item">
+                <a class="nav-link" href="/voixOff">VoixOff</a>
+              </li>
+                            <li class="nav-item">
+                <a class="nav-link" href="/personnalisation">Personnalisation</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            
+    
+        
+            
+                      <!-- Example split danger button -->
+
+            
+        </div>
+       
+           {% if   app.user %}
+                  <div class="btn-group btn-sm">
+                <button type="button" class="btn btn-danger btn-sm ">Publier</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Images</a>
+                    <a class="dropdown-item" href="#">Illustration</a>
+                    <a class="dropdown-item" href="#">Videographie</a>
+                    <a class="dropdown-item" href="#">VoixOff</a>
+                </div>
+                </div>
+               <a style="margin-left:10px" data-toggle="tooltip" title="{{app.user.username}}"  data-placement="top" href="#"><i class="fas fa-user-circle"style="heigth:36px;width:28px; font-size:30px; background-color: white; border-radius:50px"></i></ a>
+        
+          {% else %}
+            
+                <a  href="/login" id="identifie"  class="btn btn-danger btn-md " role="button" aria-pressed="true">S'identifier</a>
+                
+          {% endif %}
+             
+               
+          </ul>
+      </nav>
+    </header>

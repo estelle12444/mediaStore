@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MediaStore!{% endblock %}
+
+{% block body %}
+        {{include('includes/header.html.twig')}}
+        {{include('includes/Main/banniere.html.twig')}}
+    <!-- Banner Ends Here -->
+    <style>
+
+      .filter{
+        display:include;
+        width:50%
+      }
+    </style>
+
+    <div class="latest-products">
+          <div class="main">
+
+  <!-- Another variation with a button -->
+  <div class="input-group">
+    <!--<input type="text" class="form-control" placeholder="Rechercher un article">
+    <div class="input-group-append">
+      <button class="btn btn-danger" type="button">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>-->
+    
+  </div>
+  
+  
+</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Récents Articles</h2>
+              <a href="/photographie">voir tous les Articles<i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+                {{include('includes/Main/Article/image.html.twig')}}
+                {{include('includes/Main/Article/illustration.html.twig')}}
+                {{include('includes/Main/Article/video.html.twig')}}
+                {{include('includes/Main/Article/voixOff.html.twig')}}
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

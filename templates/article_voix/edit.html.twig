@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ArticleVoix{% endblock %}
+
+{% block body %}
+    <h1>Edit ArticleVoix</h1>
+
+    {{ include('article_voix/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('article_voix_index') }}">back to list</a>
+
+    {{ include('article_voix/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleIllustration{% endblock %}
+
+{% block body %}
+    <h1>ArticleIllustration</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article_illustration.id }}</td>
+            </tr>
+            <tr>
+                <th>IllustrationName</th>
+                <td>{{ article_illustration.illustrationName }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article_illustration.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article_illustration.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ article_illustration.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_creation</th>
+                <td>{{ article_illustration.dateDeCreation ? article_illustration.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ article_illustration.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ article_illustration.auteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_illustration_index') }}">back to list</a>
+
+    <a href="{{ path('article_illustration_edit', {'id': article_illustration.id}) }}">edit</a>
+
+    {{ include('article_illustration/_delete_form.html.twig') }}
+{% endblock %}

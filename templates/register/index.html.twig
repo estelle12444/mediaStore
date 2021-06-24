@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Register{% endblock %}
+
+{% block body %}
+<style>
+.formulaire{
+    margin-top:70px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width:40%;
+    padding-right:55px;
+    padding-left:55px;
+    height:50%;  
+}
+</style>
+
+<div class="container formulaire card">
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<br>
+     <h2 class="display-4"> 
+Créer un compte</h2>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.civilite,{
+            'attr':{
+            'placeholder': 'civilite ...',
+            'class':'form-control' 
+        }}) }}
+
+        {{ form_row(registrationForm.username,{
+            label: 'Nom',
+            'attr':{
+                'placeholder': 'Entrer un nom ...',
+                'class':'form-control',
+                'label':'Nom d\'utilisateur' }
+        }) }}
+
+        {{ form_row(registrationForm.prenom,{
+            'attr':{
+                'placeholder': 'Votre prenom ...',
+                'class':'form-control'
+         }}) }}
+
+
+         {{ form_row(registrationForm.date_de_naissance,{
+            'attr':{
+                'placeholder': 'Entrer votre date de naissance ...',
+                'class':'form-control'
+        }}) }}
+        
+        {{ form_row(registrationForm.numero_whatsapp,{
+            'attr':{
+                'placeholder': 'Numero WhatsApp ...',
+                'class':'form-control'
+         }}) }}
+
+        {{ form_row(registrationForm.email ,{
+            'attr':{
+            'placeholder': 'Adresse email ...',
+            'class':'form-control'}})
+        }}
+        {{ form_row(registrationForm.password)
+         }}
+        
+
+        <button type="submit" class="btn btn-danger">Inscription !</button>
+    {{ form_end(registrationForm) }}
+
+     <h6> déjà inscrit ? <a href="/login"> connectez - vous</a> </h6>
+
+        <div> 
+        
+            <div class="row icon">
+                <div class="col-md-12"><a href="#" ><i class="fa fa-facebook text-white icon-md"> Continuer avec</i>  </a></div>
+                <div class="col-md-12"><a href="#"> Continuer avec </a></div>
+            </div>
+        </div>
+<br>
+</div>
+{% endblock %}

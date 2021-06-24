@@ -1,0 +1,22 @@
+
+    {% for article_video in article_videos %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{path('video_show',{'id':article_video.id})}}"> <iframe class="card-img-top" width="100%" height="auto" src="/assets/uploads/videos/{{ article_video.videoName }}"
+            frameborder="0" allowfullscreen></iframe></a>
+              <div class="down-content">
+                <a href="{{path('video_show',{'id':article_video.id})}}"><h4>{{ article_video.titre }}</h4></a>
+                <h6>FCFA {{ article_video.prix }} </h6>
+                <p>{{ article_video.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (48)</span>
+              </div>
+            </div>
+          </div>
+    {% endfor %}

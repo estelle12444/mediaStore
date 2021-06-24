@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleVoix{% endblock %}
+
+{% block body %}
+    <h1>ArticleVoix</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article_voix.id }}</td>
+            </tr>
+            <tr>
+                <th>VoixName</th>
+                <td>{{ article_voix.voixName }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article_voix.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article_voix.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ article_voix.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_creation</th>
+                <td>{{ article_voix.dateDeCreation ? article_voix.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ article_voix.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ article_voix.auteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_voix_index') }}">back to list</a>
+
+    <a href="{{ path('article_voix_edit', {'id': article_voix.id}) }}">edit</a>
+
+    {{ include('article_voix/_delete_form.html.twig') }}
+{% endblock %}

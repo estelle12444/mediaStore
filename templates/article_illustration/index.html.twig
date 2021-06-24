@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleIllustration index{% endblock %}
+
+{% block body %}
+    <h1>ArticleIllustration index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IllustrationName</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Date_de_creation</th>
+                <th>Active</th>
+                <th>Auteur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_illustration in article_illustrations %}
+            <tr>
+                <td>{{ article_illustration.id }}</td>
+                <td>><img src="/assets/uploads/illustrations/{{ article_illustration.illustrationName }}"  style="width:70%;height:auto;"></td>
+                <td>{{ article_illustration.titre }}</td>
+                <td>{{ article_illustration.description }}</td>
+                <td>{{ article_illustration.prix }}</td>
+                <td>{{ article_illustration.dateDeCreation ? article_illustration.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article_illustration.active ? 'Yes' : 'No' }}</td>
+                <td>{{ article_illustration.auteur }}</td>
+                <td>
+                    <a href="{{ path('article_illustration_show', {'id': article_illustration.id}) }}">show</a>
+                    <a href="{{ path('article_illustration_edit', {'id': article_illustration.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_illustration_new') }}">Create new</a>
+{% endblock %}

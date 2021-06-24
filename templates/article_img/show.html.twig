@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleImg{% endblock %}
+
+{% block body %}
+    <h1>ArticleImg</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article_img.id }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ article_img.filename }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article_img.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article_img.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ article_img.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_creation</th>
+                <td>{{ article_img.dateDeCreation ? article_img.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ article_img.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ article_img.active ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_img_index') }}">back to list</a>
+
+    <a href="{{ path('article_img_edit', {'id': article_img.id}) }}">edit</a>
+
+    {{ include('article_img/_delete_form.html.twig') }}
+{% endblock %}

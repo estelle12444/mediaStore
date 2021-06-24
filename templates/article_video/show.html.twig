@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleVideo{% endblock %}
+
+{% block body %}
+    <h1>ArticleVideo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article_video.id }}</td>
+            </tr>
+            <tr>
+                <th>VideoName</th>
+                <td>{{ article_video.videoName }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article_video.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article_video.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ article_video.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_creation</th>
+                <td>{{ article_video.dateDeCreation ? article_video.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ article_video.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ article_video.auteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_video_index') }}">back to list</a>
+
+    <a href="{{ path('article_video_edit', {'id': article_video.id}) }}">edit</a>
+
+    {{ include('article_video/_delete_form.html.twig') }}
+{% endblock %}

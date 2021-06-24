@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleVideo index{% endblock %}
+
+{% block body %}
+    <h1>ArticleVideo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>VideoName</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Date_de_creation</th>
+                <th>Active</th>
+                <th>Auteur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_video in article_videos %}
+            <tr>
+                <td>{{ article_video.id }}</td>
+                <td> <iframe class="card-img-top" width="100%" height="auto" src="/assets/uploads/videos/{{ article_video.videoName }}"
+            frameborder="0" allowfullscreen></iframe></td>
+                <td>{{ article_video.titre }}</td>
+                <td>{{ article_video.description }}</td>
+                <td>{{ article_video.prix }} FCFA</td>
+                <td>{{ article_video.dateDeCreation ? article_video.dateDeCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article_video.active ? 'Yes' : 'No' }}</td>
+                <td>{{ article_video.auteur }}</td>
+                <td>
+                    <a href="{{ path('article_video_show', {'id': article_video.id}) }}">show</a>
+                    <a href="{{ path('article_video_edit', {'id': article_video.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_video_new') }}">Create new</a>
+{% endblock %}

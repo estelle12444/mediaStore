@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Mot de passe{% endblock %}
+
+
+{% block body %}
+
+    <h1>Réinitialisation du mot de passe</h1>
+<p>Veuillez entrer votre nouveau mot de passe ci-dessous.</p>
+    
+    <form method="post">
+    <label for="pass">Mot de passe</label>
+    <input type="password" name="password" id="pass">
+    <input type="hidden" name="token" value="{{ token}}">
+
+    <button>Valider</button>
+    </form>
+  
+{% endblock %}

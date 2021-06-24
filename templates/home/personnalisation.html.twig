@@ -1,0 +1,312 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MediaStore!{% endblock %}
+
+{% block body %}
+<style>
+
+
+          input {
+          outline: none;
+        }
+        input[type=search] {
+          -webkit-appearance: textfield;
+          -webkit-box-sizing: content-box;
+          font-family: inherit;
+          font-size: 100%;
+        }
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+          display: none; 
+        }
+
+
+        input[type=search] {
+          background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+          border: solid 1px #ccc;
+          padding: 9px 10px 9px 32px;
+          width: 55px;
+          
+          -webkit-border-radius: 10em;
+          -moz-border-radius: 10em;
+          border-radius: 10em;
+          
+          -webkit-transition: all .5s;
+          -moz-transition: all .5s;
+          transition: all .5s;
+        }
+        input[type=search]:focus {
+          width: 130px;
+          background-color: #fff;
+          border-color: #7ecc66;
+          
+          -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+          -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+          box-shadow: 0 0 5px rgba(109,207,246,.5);
+        }
+
+
+        input:-moz-placeholder {
+          color: #999;
+        }
+        input::-webkit-input-placeholder {
+          color: #999;
+        }
+
+        /* Demo 2 */
+        #demo-2 input[type=search] {
+          width: 15px;
+          padding-left: 10px;
+          color: transparent;
+          cursor: pointer;
+        }
+        #demo-2 input[type=search]:hover {
+          background-color: #fff;
+        }
+        #demo-2 input[type=search]:focus {
+          width: 130px;
+          padding-left: 32px;
+          color: #000;
+          background-color: #fff;
+          cursor: auto;
+        }
+        #demo-2 input:-moz-placeholder {
+          color: transparent;
+        }
+        #demo-2 input::-webkit-input-placeholder {
+          color: transparent;
+        }
+
+
+</style>
+
+
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+      <div class="container">
+          <a class="navbar-brand" href="/"><img src="{{asset('assets/images/logo.png')}}" alt="..."></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+          <form id="demo-2">
+          <input type="search" placeholder="Search">
+        </form>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Accueil
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="/photographie">Photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/videographie">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/illustration">Illustrations</a>
+              </li>
+                            <li class="nav-item">
+                <a class="nav-link" href="/voixOff">VoixOff</a>
+              </li>
+                            <li class="nav-item active">
+                <a class="nav-link" href="/personnalisation">Personnalisation</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            
+    
+        
+            
+                      <!-- Example split danger button -->
+
+            
+        </div>
+       
+           {% if   app.user %}
+                  <div class="btn-group btn-lg">
+                <button type="button" class="btn btn-danger btn-sm ">Publier</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Images</a>
+                    <a class="dropdown-item" href="#">Illustration</a>
+                    <a class="dropdown-item" href="#">Videographie</a>
+                    <a class="dropdown-item" href="#">VoixOff</a>
+                </div>
+                </div>
+
+                
+              <a style="margin-left:10px" data-toggle="tooltip" title="{{app.user.username}}"  data-placement="top" href="#"><i class="fas fa-user-circle"style="heigth:36px;width:28px; font-size:30px; background-color: white; border-radius:50px"></i></ a>
+             
+        
+          {% else %}
+            
+                <a  href="/login" id="identifie"  class="btn btn-danger btn-md " role="button" aria-pressed="true">S'identifier</a>
+                
+          {% endif %}
+             
+               
+          </ul>
+      </nav>
+    </header>
+  
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>PERSONNALISEEZ VOTRE PROJET PUBLICITAIRE</h4>
+              <h2>Personnalisation</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="products">
+      <div class="container">
+        <div class="row">
+        
+          <!--<div class="col-md-12">
+            <div class="filters">
+              <ul>
+                  <li class="active" data-filter="*">Tous les articles</li>
+                  <li data-filter=".des">Featured</li>
+                  <li data-filter=".dev">Flash Deals</li>
+                  <li data-filter=".gra">Last Minute</li>
+              </ul>
+            </div>
+          </div>-->
+                 
+      <!--  <section id="formulaire" style="margin-left: 25%">
+
+          <div class="container ">
+            <br>
+            <h2 style="text-align: center;">Veuillez renseigner le formulaire</h2>
+            <br>
+            
+
+            
+            
+           
+            
+            
+           
+
+
+            <br>
+            <button type="submit" style="margin-left: 35%;color: white;" class="btn btn-danger">Envoyer !</button>
+            
+          </div>
+          <br><br>
+        </section>
+            <div class="send-message">
+      -->
+      <div class="container">
+        <div class="row">
+        {{ form_start(formPersonnaliser) }}
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Veuillez renseigner le formulaire</h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="contact-form">
+
+
+              <form id="contact"  method="post">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                     {{ form_row(formPersonnaliser.email) }}
+                     
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                       {{ form_row(formPersonnaliser.numero_whatsapp) }}
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                     {{ form_row(formPersonnaliser.type_de_projet) }}
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      {{ form_row(formPersonnaliser.Modele_photo) }}
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      {{ form_row(formPersonnaliser.messages,{'attr':{
+            'placeholder': 'ecrivez Votre préocupation ...',
+            'label':'Messages'
+
+            }} )}}
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                    </fieldset>
+                  </div>
+                    {{ form_end(formPersonnaliser) }} 
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <ul class="accordion">
+              <li>
+                  <a>Accordion Title One</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>Second Title Here</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>Accordion Title Three</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>Fourth Accordion Title</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+               
+
+        <!--  <div class="col-md-12">
+            <ul class="pages">
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+          </div>
+        </div>-->
+      </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+{% for article_voix in article_voixes %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{path('voixOff_show',{'id':article_voix.id})}}"> <iframe class="card-img-top" width="auto" height="auto" src="/assets/uploads/voixOff/{{ article_voix.voixName }}"
+            frameborder="0" allowfullscreen></iframe></a>
+              <div class="down-content">
+                <a href="{{path('voixOff_show',{'id':article_voix.id})}}"><h4>{{ article_voix.titre }}</h4></a>
+                <h6>FCFA {{ article_voix.prix }}</h6>
+                <p>{{ article_voix.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (48)</span>
+              </div>
+            </div>
+          </div>
+{% endfor %}

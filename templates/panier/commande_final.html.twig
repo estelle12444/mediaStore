@@ -1,0 +1,255 @@
+    {% extends 'base.html.twig' %}
+    {% block body%}
+    <style>
+    	.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+		background-color: none !important;
+	}
+    </style>
+
+   <div class="container py-5">
+        <!-- For demo purpose -->
+
+       <div class="row mb-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-6">Formulaire de payment</h2>
+            </div>
+        </div> <!-- End -->
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="card ">
+                    <div class="card-header">
+                        <h3>
+                            Mode de transmission du fichier
+                        </h3>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Whatsapp</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Email</label>
+                        </div>
+                        <hr>
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                            <!-- Credit card form tabs -->
+                           <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                                <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2 _color"></i> Carte de Crédit  </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2 _color" ></i> Paypal </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-mobile-alt mr-2 _color"></i> Mobile Money </a> </li>
+                            </ul>
+                        </div> <!-- End -->
+                        <!--Credit card form content -->
+                      <div class="tab-content">
+                            <!-- credit card info-->
+                          <div id="credit-card" class="tab-pane fade show active pt-3">
+                                <form role="form" onsubmit="event.preventDefault()">
+                                    <div class="form-group"> <label for="username">
+                                            <h6>Propriétaire de la carte</h6>
+                                        </label> <input type="text" name="username" placeholder=" Nom" required class="form-control "> </div>
+                                    <div class="form-group"> <label for="cardNumber">
+                                            <h6>Numéro de carte</h6>
+                                        </label>
+                                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="Numéro de carte valide" class="form-control " required>
+                                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1 _color"></i> <i class="fab fa-cc-mastercard mx-1 _color"></i> <i class="fab fa-cc-amex mx-1 _color"></i> </span> </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group"> <label><span class="hidden-xs">
+                                                        <h6>Date d'expiration</h6>
+                                                    </span></label>
+                                                <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                    <h6>CVV <i class="fa fa-question-circle d-inline _color"></i></h6>
+                                                </label> <input type="text" required class="form-control"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer"> <button type="button" class="subscribe btn btn-danger btn-block shadow-sm"> 
+Confirmer le paiement </button>
+                                </form>
+                            </div>
+                        </div> <!-- End -->
+                        <!-- Paypal info -->
+                      <div id="paypal" class="tab-pane fade pt-3">
+                            <h6 class="pb-2">
+Sélectionnez votre type de compte paypal</h6>
+                            <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked>Nationale</label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
+                            <p> <button type="button" class="btn btn-danger "><i class="fab fa-paypal mr-2"></i> 
+Connectez-vous à votre Paypal</button> </p>
+                            <p class="text-muted"> Remarque : Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers le site Web pour afficher les détails de votre commande. </p>
+                        </div> <!-- End -->
+                        <!-- bank transfer info -->
+                      <div id="net-banking" class="tab-pane fade pt-3">
+                            <div class="form-group "> <label for="Select Your Bank">
+                                    <h6>Choisissez votre moyen de paiement</h6>
+                                </label> <select class="form-control" id="ccmonth">
+                                    <option value="" selected disabled>--Choisissez votre moyen de paiement--</option>
+                                    <option>Orange Money</option>
+                                    <option>MTN Money</option>
+                                    <option>Moov Money</option>
+
+                                </select> </div>
+                                <div class="form-group"> <label for="cardNumber">
+                                    <h6>
+Numéro de carte</h6>
+                                </label>
+                                <div class="input-group"> <input type="text" name="cardNumber" placeholder="
+Numéro de carte valide" class="form-control " required>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p> <button type="button" class="btn btn-danger "><i class="fas fa-mobile-alt mr-2"></i> 
+Procéder au paiement</button> </p>
+                            </div>
+                            <p class="text-muted">Remarque : Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers le site Web pour afficher les détails de votre commande. </p>
+                        </div> <!-- End -->
+                        <!-- End -->
+                 </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>-->
+
+<style>
+        	/* mn test de card code*/
+
+	
+            h1, h2, h3, h4, h5, h6{
+                font-weight: 200;
+            }
+
+            h1{
+                text-align: center;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #2fcc71;
+                max-width: 40%;
+                margin: 20px auto;
+            }
+
+            /* CONTAINERS */
+
+            .container {max-width: 850px; width: 100%; margin: 0 auto;}
+            .four { width: 32.26%; max-width: 32.26%;}
+
+
+            /* COLUMNS */
+
+            .col {
+            display: block;
+            float:left;
+            margin: 1% 0 1% 1.6%;
+            }
+
+            .col:first-of-type { margin-left: 0; }
+
+            /* CLEARFIX */
+
+            .cf:before,
+            .cf:after {
+                content: " ";
+                display: table;
+            }
+
+            .cf:after {
+                clear: both;
+            }
+
+            .cf {
+                *zoom: 1;
+            }
+
+            /* FORM */
+
+            .form .plan input, .form .payment-plan input, .form .payment-type input{
+                display: none;
+            }
+
+            .form label{
+                position: relative;
+                color: #fff;
+                background-color: #aaa;
+                font-size: 26px;
+                text-align: center;
+                height: 150px;
+                line-height: 150px;
+                display: block;
+                cursor: pointer;
+                border: 3px solid transparent;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .form .plan input:checked + label, .form .payment-plan input:checked + label, .form .payment-type input:checked + label{
+                border: 3px solid #333;
+                background-color: #2fcc71;
+            }
+
+            .form .plan input:checked + label:after, form .payment-plan input:checked + label:after, .form .payment-type input:checked + label:after{
+                content: "\2713";
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 100%;
+                border: 2px solid #333;
+                background-color: #2fcc71;
+                z-index: 999;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+            }
+
+            .submit{
+                padding: 15px 60px;
+                display: inline-block;
+                border: none;
+                margin: 20px 0;
+                background-color: #2fcc71;
+                color: #fff;
+                border: 2px solid #333;
+                font-size: 18px;
+                -webkit-transition: transform 0.3s ease-in-out;
+                -o-transition: transform 0.3s ease-in-out;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .submit:hover{
+                cursor: pointer;
+                transform: rotateX(360deg);
+            }
+
+            /* fin*/
+</style>
+
+
+<!--<div class="container">
+		<h1>Checkout Form</h1>
+		<form class="form cf">
+			
+			<section class="payment-plan cf">
+				<h2>Selectionnez votre moyen de transmission de fichier:</h2>
+				<input type="radio" name="radio2" id="monthly" value="Whatsapp" checked><label class="monthly-label four col" for="monthly">Whatsapp</label>
+				<input type="radio" name="radio2" id="yearly" value="EMail"><label class="yearly-label four col" for="yearly">Email</label>
+			</section>
+			<section class="payment-type cf">
+				<h2>Select a payment type:</h2>
+				<input type="radio" name="radio3" id="credit" value="credit"checked><label class="credit-label four col" for="credit">Credit Card VISA </label>
+				
+			</section>	
+			<a href="/visa" class="btn btn-danger btn-sm">
+                           suivant
+            </a> 	
+		</form>
+</div>-->
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Panier!{% endblock %}
+
+{% block body %}
+{{include('includes/header.html.twig')}}
+<br><br><br><br>
+<style>
+    .example-wrapper { margin: 0.1em auto; max-width: 800px ;  }
+    .example-wrapper code {  }
+</style>
+<div class="example-wrapper" style=" font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 style="background-color:#fcfbfa!important; text-align: center; " >Votre Panier </h1>
+    <hr>
+
+    {% if items | length > 0 %}
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Titre de l'article</th>
+                    <th>Images</th>
+                    <th>Prix</th>
+                    <th colspan="2">Description</th>
+                    <th>Categories</th>
+                    <th>Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.article_img.titre }}</td>
+                    <td><img  src="/assets/uploads/images/{{ item.article_img.filename }}"alt="{{item.article_img.titre}}" style="width:200px;height:auto;"> </td>
+                    <td>{{ item.article_img.prix }} FCFA</td>
+                    <td colspan="2">{{ item.article_img.description |raw}}</td>
+                    <td>Ethnies</td>
+                   
+                    <td>
+                        <a href="{{path('card_remove', {'id':item.article_img.id })}}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-right">Total à payer: </td>
+                    <td>{{ total }} FCFA</td>
+                    <td><a href="{{path('commande_final')}}" class="btn btn-danger btn-md">
+                           Finaliser Votre commande
+                        </a> </td>                 
+                </tr>
+                <tr>
+                        <td>
+                            <a href="/" class="btn btn-danger btn-md">
+                           Continuer vos achats
+                        </a> 
+                        </td>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p> Suprise votre panier est vide</p>
+    {% endif %}
+   
+</div>
+{% endblock %}

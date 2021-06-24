@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MediaStore!{% endblock %}
+
+{% block body %}
+
+
+
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="{{asset('assets/images/logo.png')}}" alt="..."></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Accueil
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item ">
+                <a class="nav-link" href="/photographie">Photographie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/videographie">Videographie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/illustration">Illustration</a>
+              </li>
+                            <li class="nav-item">
+                <a class="nav-link" href="/voixOff">VoixOff</a>
+              </li>
+                            <li class="nav-item">
+                <a class="nav-link" href="/personnalisation">Personnalisation</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            
+    
+        
+            </ul>
+                      <!-- Example split danger button -->
+            <div class="btn-group">
+            <button type="button" class="btn btn-danger">Publier</button>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Images</a>
+                <a class="dropdown-item" href="#">Illustration</a>
+                <a class="dropdown-item" href="#">Videographie</a>
+                <a class="dropdown-item" href="#">VoixOff</a>
+            </div>
+            </div>
+
+        </div>
+        
+
+          </div>
+
+      </nav>
+    </header>
+  
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>plus de milles Illustrations disponibles</h4>
+              <h2>Illustration</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="products">
+      <div class="container">
+        <div class="row">
+        {{ form(form)}}
+          <!--<div class="col-md-12">
+            <div class="filters">
+              <ul>
+                  <li class="active" data-filter="*">Tous les articles</li>
+                  <li data-filter=".des">Featured</li>
+                  <li data-filter=".dev">Flash Deals</li>
+                  <li data-filter=".gra">Last Minute</li>
+              </ul>
+            </div>
+          </div>-->
+                 {% for article_illustration in article_illustrations %}
+                  <div class="col-lg-4 col-md-4 ">
+                    
+                      <div class="product-item">
+                     
+                        <a href="{{path('illustration_show',{'id':article_illustration.id})}}"><img src="/assets/uploads/illustrations/{{ article_illustration.illustrationName }}"  style="height:auto;"></a>
+                        <div class="down-content">
+                          <a href="#"><h4>{{ article_illustration.titre }}</h4></a>
+                          <h6>FCFA {{ article_illustration.prix }}</h6>
+                          <p>{{ article_illustration.description}}</p>
+                          <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                          </ul>
+                          <span>Reviews (12)</span>
+                        </div>
+                      </div>
+                      </div>
+                     
+                    {% endfor %}
+                  
+
+        <!--  <div class="col-md-12">
+            <ul class="pages">
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+          </div>
+        </div>-->
+      </div>
+      </div>
+    </div>
+    {{include('includes/footer.html.twig')}}
+{% endblock %}

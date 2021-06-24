@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo.png')}}" alt="..."></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    
+      <div class="input-group col-4">
+        <input type="text" class="form-control" placeholder="Rechercher un article">
+        <div class="input-group-append">
+          <button class="btn btn-danger" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+        <ul class="navbar-nav ml-auto"></ul>
+      {% if not app.user %}
+      <li class="nav-item" style="margin-left:150px">
+        <a class="nav-link nav-color" href="/login" style="margin-left:20px">Connexion</a>
+      </li>
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link nav-color" href="/logout">Deconnexion</a>
+      <li class="nav-item ">
+        <a class="nav-item " data-toggle="tooltip" title="{{app.user.username}}" data-placement="top" href="#"><i
+            class="fas fa-user"></i></a>
+      </li>
+
+      </li>
+
+      {% endif %}
+
+
+      <li>
+        <a class="nav-link " data-toggle="tooltip" title="Panier" data-placement="top" href="/panier"> <i
+            class="fas fa-shopping-bag"> Panier</i></a>
+      </li>
+     
+   
+
+
+</nav>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-5">
+      
+        <div class="product-item">
+        <img src="/assets/uploads/illustrations/{{ article_illustration.illustrationName }}"  style="width:100%;height:auto;">
+        <div class="card-body">
+          <div class="down-content">
+          <h5 class="card-title">{{ article_illustration.titre }}</h5>
+          <h6>FCFA {{ article_illustration.prix }}</h6>
+          <p class="card-text">{{ article_illustration.description }}</p>
+          <p class="card-text"><small class="text-muted">Mis en ligne {{ article_illustration.dateDeCreation ? article_illustration.dateDeCreation|date('Y-m-d H:i:s') : '' }}</small></p>
+          <ul class="stars">
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5" style="background-color: rgb(246, 245, 245); border-radius: 5px;">
+      <div>
+        <br>
+
+        <h4 style="margin-left:20%;"> PASCALE/ {{ article_illustration.titre }}</h4>
+        <hr>
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-2">
+            <button type="submit" class="btn btn-danger"> <i class="fas fa-thumbs-up"></i> Like</button>
+          </div>
+
+          <div class="col-lg-2">
+            <button type="submit" class="btn btn-danger"><i class="fas fa-heart"></i> Suivre </button>
+          </div>
+          <div class="col-lg-2">
+            <button type="submit" class="btn btn-danger"> <i class="fas fa-share-alt"></i> Partager</button>
+          </div>
+        </div>
+
+        <hr>
+        <div class="dropdown ">
+          <button type="button" class="btn btn telecharger dropdown-toggle " data-toggle="dropdown">
+            Télécharger <i class="fas fa-arrow-circle-down"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item">
+              <div class="col-md-1">
+                <div class="form-check">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-check-label" for="exampleRadios1">
+                        640 X 640 jpg
+                      </label>
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <a class="dropdown-item">
+                  <div class="form-check">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                          value="option2">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-check-label" for="exampleRadios1">
+                          1280 X 1280 jpg
+                        </label>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="form-check">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                          value="option3" checked>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-check-label" for="exampleRadios1">
+                          2480 X 2480 jpg
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </a>
+              </div>
+          </div>
+
+        </div>
+
+        <hr>
+        <h5 class="card-title" > Prix :{{article_illustration.prix}} FCFA </h5>
+        <a href="{{path ('card_add',{'id':article_illustration.id})}}" class="panier-btn"> <i class="fas fa-plus"></i> Ajouter au panier</a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

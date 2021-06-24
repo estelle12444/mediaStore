@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ArticleVideo{% endblock %}
+
+{% block body %}
+    <h1>Edit ArticleVideo</h1>
+
+    {{ include('article_video/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('article_video_index') }}">back to list</a>
+
+    {{ include('article_video/_delete_form.html.twig') }}
+{% endblock %}
