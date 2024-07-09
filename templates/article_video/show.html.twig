@@ -3,8 +3,21 @@
 {% block title %}ArticleVideo{% endblock %}
 
 {% block body %}
-    <h1>ArticleVideo</h1>
+<style>
+.formulaire{
+    margin-top:70px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width:70%;
+    padding-right:55px;
+    padding-left:55px;
+    height:50%;  
+}
 
+</style>
+{{include('includes/header.html.twig')}}
+   <br>
+   <div class="container formulaire card">
+<h2 class="display-4"> Affichage d'une vidéo</h2>
     <table class="table">
         <tbody>
             <tr>
@@ -41,7 +54,7 @@
             </tr>
         </tbody>
     </table>
-
+ </div>
     <a href="{{ path('article_video_index') }}">back to list</a>
 
     <a href="{{ path('article_video_edit', {'id': article_video.id}) }}">edit</a>

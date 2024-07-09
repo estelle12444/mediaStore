@@ -3,7 +3,23 @@
 {% block title %}ArticleImg index{% endblock %}
 
 {% block body %}
-    <h1>ArticleImg index</h1>
+
+<style>
+.formulaire{
+    margin-top:70px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width:70%;
+    padding-right:55px;
+    padding-left:55px;
+    height:50%;  
+}
+
+</style>
+
+{{include('includes/header.html.twig')}}
+   <br>
+<div class="container formulaire card">
+    <h2 class="display-4">Liste des images</h2>
 
     <table class="table">
         <thead>
@@ -31,8 +47,8 @@
                 <td>{{ article_img.auteur }}</td>
                 <td>{{ article_img.active ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('article_img_show', {'id': article_img.id}) }}">show</a>
-                    <a href="{{ path('article_img_edit', {'id': article_img.id}) }}">edit</a>
+                    <a href="{{ path('article_img_show', {'id': article_img.id}) }}">Voir</a>
+                    <a href="{{ path('article_img_edit', {'id': article_img.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +59,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('article_img_new') }}">Create new</a>
+    <a href="{{ path('article_img_new') }}">Ajouter</a>
+    </div>
 {% endblock %}

@@ -89,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
 
-        $this->roles = 'ROLE_USER';
+        $this->roles = 'ROLE_ADMIN';
         $this->date_de_creation = new \DateTime();
     }
 
@@ -141,7 +141,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles=[];
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_ADMIN';
 
         return array_unique($roles);
     }

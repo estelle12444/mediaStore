@@ -25,9 +25,6 @@ class PanierController extends AbstractController
         foreach($panier as $id => $quantity){
             $panierWithData[] =[
                 'article_img' => $articleImgRepository->find($id),
-                'article_video' => $articleVideoRepository->find($id),
-                'article_illustration' => $articleIllustrationRepository->find($id),
-                'article_voix' => $articleVoixRepository->find($id),
                 'quantity' => $quantity,
 
             ]; 
@@ -35,7 +32,7 @@ class PanierController extends AbstractController
 
         $total =0;
         foreach($panierWithData as $item){
-            $totalItem = $item['article_img']->getPrix() + $item['article_voix']->getPrix() + $item['article_illustration']->getPrix() + $item['article_video']->getPrix() ;
+            $totalItem = $item['article_img']->getPrix()  ;
             $total += $totalItem;
         }
        

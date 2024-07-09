@@ -8,16 +8,18 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
             <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo-white.png" alt="Profil" />
-                </a>
+                <!--<a href="#">
+                    <img src="{{asset('assets/Admin/images/avatar-gratuit.png')}}" alt="Mon Profil" />
+                </a>-->
+                <h4 style="text-align: center; color:white"> MON Profil </h4>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
+                        <img src="{{asset('assets/Admin/images/avatar-gratuit.png')}}" alt="Mon Profil" />
                     </div>
                     <h4 class="name"> 
+                        {{app.user.username}}
                     </h4>
                     <a href="/logout">Deconnexion</a>
                 </div>
@@ -25,7 +27,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                                <i class="fas fa-tachometer-alt"></i>Tableau de bord
                                
                             </a>
 >
@@ -437,8 +439,8 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">10,368</h2>
-                                    <span class="desc">members online</span>
+                                    <h2 class="number">10 </h2>
+                                    <span class="desc">oeuvre achetées</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>
                                     </div>
@@ -446,8 +448,8 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">388,688</h2>
-                                    <span class="desc">items sold</span>
+                                    <h2 class="number">388</h2>
+                                    <span class="desc">solde</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-shopping-cart"></i>
                                     </div>
@@ -456,20 +458,13 @@
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
                                     <h2 class="number">1,086</h2>
-                                    <span class="desc">this week</span>
+                                    <span class="desc">cette semaine</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-calendar-note"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">$1,060,386</h2>
-                                    <span class="desc">total earnings</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-money"></i>
-                                    </div>
-                                </div>
+                          
                             </div>
                         </div>
                     </div>
@@ -484,12 +479,12 @@
                             <div class="col-xl-8">
                                 <!-- RECENT REPORT 2-->
                                 <div class="recent-report2">
-                                    <h3 class="title-3">recent reports</h3>
+                                    <h3 class="title-3">recent rapport</h3>
                                     <div class="chart-info">
                                         <div class="chart-info__left">
                                             <div class="chart-note">
                                                 <span class="dot dot--blue"></span>
-                                                <span>products</span>
+                                                <span>oeuvres</span>
                                             </div>
                                             <div class="chart-note">
                                                 <span class="dot dot--green"></span>
@@ -500,7 +495,7 @@
                                             <div class="rs-select2--dark rs-select2--md m-r-10">
                                                 <select class="js-select2" name="property">
                                                     <option selected="selected">All Properties</option>
-                                                    <option value="">Products</option>
+                                                    <option value="">Oeuvres</option>
                                                     <option value="">Services</option>
                                                 </select>
                                                 <div class="dropDownSelect2"></div>
@@ -508,8 +503,8 @@
                                             <div class="rs-select2--dark rs-select2--sm">
                                                 <select class="js-select2 au-select-dark" name="time">
                                                     <option selected="selected">All Time</option>
-                                                    <option value="">By Month</option>
-                                                    <option value="">By Day</option>
+                                                    <option value="">By Mois</option>
+                                                    <option value="">By Jour</option>
                                                 </select>
                                                 <div class="dropDownSelect2"></div>
                                             </div>

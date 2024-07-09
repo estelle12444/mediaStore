@@ -133,6 +133,7 @@ class HomeController extends AbstractController
             $nom=$this->getUser()->getPrenom();
             $personnaliser->setNom($nom);
         }
+        
 
         return $this->render('home/personnalisation.html.twig', [
             'formPersonnaliser' => $form->createView()

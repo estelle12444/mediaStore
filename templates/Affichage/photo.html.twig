@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
-  <a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo.png')}}" alt="..."></a>
+  <h2 class="navbar-brand" href="/"><img src="#" style="height:50px; font-weight:800;color:#f33f3f;width:auto" alt="AFRICASTOCK" ></h2>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,9 +21,7 @@
       </div>
         <ul class="navbar-nav ml-auto"></ul>
       {% if not app.user %}
-      <li class="nav-item" style="margin-left:150px">
-        <a class="nav-link nav-color" href="/login" style="margin-left:20px">Connexion</a>
-      </li>
+       <a  href="/login" id="identifie"  class="btn btn-danger btn-md " style:"margin-rigth:10px" role="button" aria-pressed="true">S'identifier</a>
 
       {% else %}
       <li class="nav-item">
@@ -38,10 +36,10 @@
       {% endif %}
 
 
-      <li>
-        <a class="nav-link " data-toggle="tooltip" title="Panier" data-placement="top" href="/panier"> <i
+   
+        <a class="btn btn-danger btn-md" data-toggle="tooltip" title="Panier" data-placement="top" href="/panier"> <i
             class="fas fa-shopping-bag"> Panier</i></a>
-      </li>
+     
      
    
 
@@ -92,19 +90,20 @@
             <button type="submit" class="btn btn-danger"><i class="fas fa-heart"></i> Suivre </button>
           </div>
           <div class="col-lg-2">
-            <button type="submit" class="btn btn-danger"> <i class="fas fa-share-alt"></i> Partager</button>
+            <button type="submit" class="btn btn-danger"> <i class="fas fa-share-alt"></i> Partager</button><i class="fas fa-arrow-circle-down"></i>
           </div>
         </div>
 
         <hr>
-        <div class="dropdown ">
-          <button type="button" class="btn btn telecharger dropdown-toggle " data-toggle="dropdown">
-            Télécharger <i class="fas fa-arrow-circle-down"></i>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item">
-              <div class="col-md-1">
+        
+          <a href="{{asset('assets/images/logo.png')}}" download="images" > <button> Télécharger  </button>
+             </a>
+
+         <!-- <div class="dropdown-menu" style="background-color:brown; margin-left:20px; widht: 90%;">
+            <div class="dropdown" > 
+             <!-- <div class="col-md-1">
                 <div class="form-check">
+                  
                   <div class="row">
                     <div class="col-md-1">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
@@ -157,17 +156,72 @@
                 </a>
               </div>
           </div>
-
-        </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  
+                  <label class="form-check-label"  style="color:white;margin-left:30px" for="exampleRadios1">
+                    450px X 450px
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label"  style="color:white;margin-left:30px" for="exampleRadios1">
+                    Default radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label"  style="color:white;margin-left:30px" for="exampleRadios1">
+                    Default radio
+                  </label>
+                </div>
+                </div>-->
+      
 
         <hr>
         <h5 class="card-title" > Prix :{{article_img.prix}} FCFA </h5>
         <a href="{{path ('card_add',{'id':article_img.id})}}" class="panier-btn"> <i class="fas fa-plus"></i> Ajouter au panier</a>
-
+          	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{{asset('assets/images/more-info.jpg')}}" alt="First slide">
+    <div class="carousel-caption d-none d-md-block">
+    <h1 style="font-size:5em">AFFICHEZ-VOUS</h1>
+    <p>...</p>
+  </div>
+             
+           
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{asset('assets/images/more-info.jpg')}}" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+    <h1 style="font-size:5em">AFFICHEZ-VOUS</h1>
+    <p>...</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{asset('assets/images/more-info.jpg')}}" alt="Third slide">
+    <div class="carousel-caption d-none d-md-block">
+    <h1 style="font-size:5em">AFFICHEZ-VOUS</h1>
+    <p>...</p>
+  </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
       </div>
 
     </div>
   </div>
 </div>
+<br><br>
+
 
 {% endblock %}

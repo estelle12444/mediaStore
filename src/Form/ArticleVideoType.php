@@ -24,7 +24,7 @@ class ArticleVideoType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new File([
-                        'maxSize' => '13000k',
+                        'maxSize' => '44000k',
                         'mimeTypes' => [
                             'video/mp4',
                             'video/x-msvideo',
